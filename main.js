@@ -10,46 +10,42 @@ let HEIGHT = window.innerHeight / 2 ;
 var ctx = mainCanvas.getContext("2d") ;
 ctx.fillStyle = "rgb(255, 255, 255)" ;
 
+
+// SETTING CUBE
+
 let len = 50 ;
+const point = []
+for(let i = 0 , size = 0 ; i < 2 ; i++){
+    for(let j = 0 ; j < 2 ; j++){
+        for(let k = 0 ; k < 2 ; k++){
+            let p = new Point(i*len , j*len , k*len) ;
+            point.push( p ) ;
+        }
+    }
+}
 
-let point0 = new Point(0,0,0) ;
-let point1 = new Point(len,0,0) ;
-let point2 = new Point(len,len,0) ;
-let point3 = new Point(0,len,0) ;
-let point4 = new Point(0,0,len) ;
-let point5 = new Point(len,0,len) ;
-let point6 = new Point(len,len,len) ;
-let point7 = new Point(0,len,len) ;
+const adj = [] ;
 
-const point = [ point0 , point1 , point2 , point3 , point4 , point5 , point6 , point7 ] ;
+for(let i = 0 ; i < 8 ; i++){
+    adj.push([]) ;
+    for(let j = 0 ; j < 8 ; j++){
+        adj[i].push(0) ;
+    }
+}
 
-adj = [
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
-    [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-] ;
-
-adj[0][1] = 1 ;
-adj[1][2] = 1 ;
-adj[2][3] = 1 ;
-adj[0][3] = 1 ;
-adj[4][5] = 1 ;
-adj[5][6] = 1 ;
-adj[6][7] = 1 ;
-adj[4][7] = 1 ;
-adj[0][4] = 1 ;
-adj[1][5] = 1 ;
-adj[2][6] = 1 ;
-adj[3][7] = 1 ;
+for(let i = 0 ; i < 8 ; i++){
+    for(let j = 0 ; j < 8 ; j++){
+        let dx = point[i].x - point[j].x ;
+        let dy = point[i].y - point[j].y ;
+        let dz = point[i].z - point[j].z ;
+        if( len*len == dx*dx + dy*dy + dz*dz ) adj[i][j] = 1 ;
+    }
+}
 
 
+cube = new Shape(8,point,adj) ;
+shape = cube ;
 
-let shape = new Shape( 8 , point , adj ) ;
 shape.draw( ctx , WIDTH/2 , HEIGHT/2 ) ;
 
 function input_control( event ){
@@ -72,4 +68,3 @@ function input_control( event ){
 }
 
 document.addEventListener('keydown' , (event) => input_control(event) ) ;
-
