@@ -1,4 +1,3 @@
-
 // dot product of two vectors in the space
 
 function dot_product( A , B ){
@@ -6,7 +5,6 @@ function dot_product( A , B ){
     for(let i = 0 ; i < 3 ; i++) ret += A[i] * B[i] ;
     return ret ;
 }
-
 
 // a point in the 3D - space
 
@@ -119,10 +117,15 @@ class Camera{
     draw_shape( ctx , shape , x_0 , y_0 ){
         
         for(let i = 0 ; i < shape.n ; i++){
+            let pos1 = this.get_point_position(shape.point[i]) ;
+            ctx.beginPath() ;
+            ctx.arc(x_0 + pos1[0] , y_0 + pos1[1] , 3 , 2*Math.PI , false ) ;
+            ctx.closePath() ;
+            ctx.fill() ;
+            ctx.stroke() ;
             for(let j = i+1 ; j < shape.n ; j++){
                 if( shape.adj[i][j] == 1 ){
                     ctx.beginPath() ;
-                    let pos1 = this.get_point_position(shape.point[i]) ;
                     let pos2 = this.get_point_position(shape.point[j]) ;
                     ctx.moveTo( x_0 + pos1[0] , y_0 + pos1[1] ) ;
                     ctx.lineTo( x_0 + pos2[0] , y_0 + pos2[1]) ;

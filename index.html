@@ -3,12 +3,36 @@
     <head>
         <title>Simple 3D Graphics</title>
     </head>
+    
     <body>
 	you can rotate using x , y , z	
 	<br>you are pressing : <a id = "currentInput">  </a> <br> 
-        <canvas style="border:1px solid black;" class = "mainCanvas" >
-        </canvas> 
+        <div>
+            <canvas style="border:1px solid black;" class = "mainCanvas" >
+            </canvas>
+            <a style = " position:absolute ; background-color: antiquewhite ; top : 0 ;" >
+                you can insert your points to be added<br><br>
+                <div>
+                &nbsp; x : <input id = "x_input" type = "number" ><br>
+                &nbsp; y : <input id = "y_input" type = "number" ><br>
+                &nbsp; z : <input id = "z_input" type = "number" ><br>
+                </div>
+                <input type = "button" value="Add" onclick = "add_point()" >              
+                <br><br><br>
+                <table id = "table_of_points">
+                    <tr>
+                      <td>index</td>
+                      <td>x</td>
+                      <td>y</td>
+                      <td>z</td>
+                    </tr>
+                </table>
+            
+            
+            </a>
+        </div> 
     </body>
     <script src = "graphics.js" ></script>
     <script src = "main.js" ></script>
+    <script src = "input.js" ></script>
 </html>

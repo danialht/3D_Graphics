@@ -14,7 +14,7 @@ let WIDTH = 500 ;
 let HEIGHT = 500 ;
 
 var ctx = mainCanvas.getContext("2d") ;
-ctx.fillStyle = "rgb(255, 255, 255)" ;
+ctx.fillStyle = "rgb(255, 0, 0)" ;
 
 const SCREEN_SIZE = [WIDTH , HEIGHT] ;
 
@@ -22,7 +22,7 @@ const SCREEN_SIZE = [WIDTH , HEIGHT] ;
 
 var mainCamera = new Camera( [0,0,1] , [1,0,0] , [0,0,-40] , Math.PI/4 , Math.PI/4 , SCREEN_SIZE ) ;
 
-
+/*
 // SETTING CUBE
 
 let len = 10 ;
@@ -56,9 +56,30 @@ for(let i = 0 ; i < 8 ; i++){
 
 cube = new Shape(8,point,adj) ;
 shape = cube ;
+*/
+let p = new Point(0,0,0) ;
+shape = new Shape(0 , [] , [] ) ;
 
-mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2 ) ;
+function update_shape(x,y,z){
+    let point = new Point(x,y,z) ;
+    shape.point[shape.n] = point ;
+    shape.n++ ;
+    adj = [] ;
+    for(let i = 0 ; i < shape.n ; i++){
+        adj.push([]) ;
+        for(let j = 0 ; j < shape.n ; j++){
+            adj[i].push(0) ;
+        }
+    }
+    shape.adj = adj ;
+    mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2  ) ;
+}
 
+function update_adj( index1 , index2 ){
+    shape.adj[index1][index2] = shape.adj[index1][index2] = 1 ;
+}
+
+// RESPONDING TO INPUT
 
 function input_control( event ){
     document.getElementById("currentInput").innerText = event.key ;
