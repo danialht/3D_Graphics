@@ -62,16 +62,20 @@ shape = new Shape(0 , [] , [] ) ;
 
 function update_shape(x,y,z){
     let point = new Point(x,y,z) ;
-    shape.point[shape.n] = point ;
-    shape.n++ ;
+    shape.point.push(point) ;
     adj = [] ;
-    for(let i = 0 ; i < shape.n ; i++){
+    for(let i = 0 ; i <= shape.n ; i++){
         adj.push([]) ;
-        for(let j = 0 ; j < shape.n ; j++){
+        for(let j = 0 ; j <= shape.n ; j++){
             adj[i].push(0) ;
         }
     }
+    for(let i = 0 ; i < shape.n ; i++){
+        for(let j = 0 ; j < shape.n ; j++)
+            adj[i][j] = shape.adj[i][j] ;
+    }
     shape.adj = adj ;
+    shape.n++ ;
     mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2  ) ;
 }
 
