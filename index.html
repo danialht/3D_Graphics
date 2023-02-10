@@ -6,12 +6,14 @@
     </head>
     
     <body>
-	you can rotate the shape using x , y , z <br>	
-	you are pressing : <a id = "currentInput">  </a> <br> 
-        <div>
-            <canvas style="border:1px solid black;" class = "mainCanvas" >
-            </canvas>
-            <a style = " position:absolute ; background-color: antiquewhite ; top : 0 ;" >
+	
+        you can rotate the shape using x , y , z <br>
+        <div style = "text-align : center ; margin : auto ;">
+            <canvas class = "mainCanvas" ></canvas>
+        
+            
+            <div id = "add_point_input" style = " position:absolute ; background-color: white ; top : 0 ;" >
+                
                 you can insert your points to be added<br><br>
                 <div>
                 &nbsp; x : <input id = "x_input" type = "number" ><br>
@@ -29,8 +31,17 @@
                     </tr>
                 </table>
             
+            </div>
+
+            <div id = "add_point_input" style = " position:absolute ; background-color:white ; top : 0 ;" >
+                
+                you can write a text including vertices and edges.<br>
+                you must use <a href = "correct_input_format.html">the correct input format</a><br>
             
-            </a>
+            </div>
+
+
+
         </div> 
     </body>
     <script src = "graphics.js" ></script>

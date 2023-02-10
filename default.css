@@ -10,3 +10,12 @@
     text-decoration-color: rgb(150, 192, 255);
     background-color: rgb(57, 57, 57);
 }
+
+.right{
+    right : 0 ;
+}
+
+.mainCanvas{
+    border:1px solid black;
+    margin : auto ;
+}
