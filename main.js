@@ -60,24 +60,7 @@ shape = cube ;
 let p = new Point(0,0,0) ;
 shape = new Shape(0 , [] , [] ) ;
 
-function update_shape(x,y,z){
-    let point = new Point(x,y,z) ;
-    shape.point.push(point) ;
-    adj = [] ;
-    for(let i = 0 ; i <= shape.n ; i++){
-        adj.push([]) ;
-        for(let j = 0 ; j <= shape.n ; j++){
-            adj[i].push(0) ;
-        }
-    }
-    for(let i = 0 ; i < shape.n ; i++){
-        for(let j = 0 ; j < shape.n ; j++)
-            adj[i][j] = shape.adj[i][j] ;
-    }
-    shape.adj = adj ;
-    shape.n++ ;
-    mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2  ) ;
-}
+
 
 function update_adj( index1 , index2 ){
     shape.adj[index1][index2] = shape.adj[index1][index2] = 1 ;
@@ -86,20 +69,16 @@ function update_adj( index1 , index2 ){
 // RESPONDING TO INPUT
 
 function input_control( event ){
-    document.getElementById("currentInput").innerText = event.key ;
     if( event.key == "x" ){
         shape.rotate_x(0.1) ;
-        ctx.clearRect(0 , 0 , WIDTH , HEIGHT ) ;
         mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2  ) ;
     }
     if( event.key == "y" ){
         shape.rotate_y(0.1) ;
-        ctx.clearRect(0 , 0 , WIDTH , HEIGHT ) ;
         mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2 ) ;
     }
     if( event.key == "z" ){
         shape.rotate_z(0.1) ;
-        ctx.clearRect(0 , 0 , WIDTH , HEIGHT ) ;
         mainCamera.draw_shape( ctx , shape , WIDTH/2 , WIDTH/2 ) ;
     }
 }

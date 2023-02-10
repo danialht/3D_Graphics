@@ -1,0 +1,12 @@
+.btn_connect{
+    background-color: rgb(51, 239, 51);
+}
+
+.btn_disconnect{
+    background-color: rgb(255, 40, 40);
+}
+
+.btn_remove{
+    text-decoration-color: rgb(150, 192, 255);
+    background-color: rgb(57, 57, 57);
+}

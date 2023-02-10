@@ -77,6 +77,18 @@ class Shape{
             this.point[i].rotate_z( theta ) ;
         }
     }
+
+    add_point( x , y , z ){
+        let new_point = new Point( x , y , z ) ;
+        for(let i = 0 ; i < this.n ; i++){
+            this.adj[i].push(0) ;
+        }
+        this.adj.push([]) ;
+        for(let i = 0 ; i <= this.n ; i++) this.adj[this.n].push(0) ;
+        this.point.push(new_point) ;
+        this.n++ ;
+    }
+
 };
 
 
@@ -116,6 +128,7 @@ class Camera{
     }
     draw_shape( ctx , shape , x_0 , y_0 ){
         
+        ctx.clearRect(0 , 0 , WIDTH , HEIGHT ) ;
         for(let i = 0 ; i < shape.n ; i++){
             let pos1 = this.get_point_position(shape.point[i]) ;
             ctx.beginPath() ;
