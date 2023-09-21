@@ -1,7 +1,8 @@
 # 3D_Graphics
 
-## Why this repository exists ?
+## Introductory
+This tool lets you create 3D objects, observe them by rotating and draw their convex hull.
 
-I am very enthusiastic person when it comes to math and physics, so I wanted to try something new, thus I tried to create
-a simple graphics engine using javascript, right now it is a little bit ugly ( but works at least :) ).
-Later I decided to add some thing related to computer science too, so I implemented a simple convex hull algorithm.
+
+## Camera
+The projection of image on to the screen is similar to the eye(closer objects are bigger etc).
