@@ -1,21 +1,90 @@
-.btn_connect{
+.btn_connect {
     background-color: rgb(51, 239, 51);
 }
 
-.btn_disconnect{
+.btn_disconnect {
     background-color: rgb(255, 40, 40);
 }
 
-.btn_remove{
+.add-button {
+    border-radius: 1vh;
+    background-color: rgb(181, 220, 255);
+}
+
+.btn_remove {
     text-decoration-color: rgb(150, 192, 255);
     background-color: rgb(57, 57, 57);
 }
 
-.right{
-    right : 0 ;
+.mainCanvas {
+    border: 1px solid black;
+    background-color: rgb(230, 230, 230);
+    border-radius: 1vh;
+    display: block;
+    margin-left: 50vw;
+    height: 35vw;
+    max-height: 90vh;
+    margin-top: 7vh;
 }
 
-.mainCanvas{
-    border:1px solid black;
-    margin : auto ;
+.panel {
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    width: 30vw;
+    padding: 5vh;
+}
+
+.input {
+    margin: 1vh;
+}
+
+.panel-title {
+    font-size: 3vh;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.panel-description {
+    font-size: 2.2vh;
+    animation-name: winking-text;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    color: rgb(70, 193, 255);
+}
+
+.table td {
+    border: 1px solid black;
+    margin: 1vh;
+}
+
+@keyframes winking-text {
+    0% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

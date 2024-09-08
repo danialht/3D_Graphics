@@ -8,40 +8,48 @@
     
     <body>
 	
-        you can rotate the shape using x , y , z <br>
-        <div style = "text-align : center ; margin : auto ;">
-            <canvas class = "mainCanvas" ></canvas>
-        
+        <div>
             
-            <div id = "add_point_input" style = " position:absolute ; background-color: white ; top : 0 ;" >
+            
+            <div class="panel" id = "add_point_input" style = " position:absolute ; background-color: white ; top : 0 ;" >
                 
-                you can insert your points to be added<br><br>
+                <p class="panel-title">
+                Insert Coordinates for the adding a new point!
+                </p>
+
+                <p class="panel-description">
+                    Rotate the object you create using the keyboard buttons x, y and z.
+                </p>
+
                 <div>
-                &nbsp; x : <input id = "x_input" type = "number" ><br>
-                &nbsp; y : <input id = "y_input" type = "number" ><br>
-                &nbsp; z : <input id = "z_input" type = "number" ><br>
+                    <div>
+                    &nbsp; x : <input class="input" id = "x_input" type = "number" ><br>
+                    &nbsp; y : <input class="input" id = "y_input" type = "number" ><br>
+                    &nbsp; z : <input class="input" id = "z_input" type = "number" ><br>
+                    </div>
+                    <input class = "add-button" type = "button" value="Add" onclick = "add_point()" >
+                    <table class="table" id = "table_of_points">
+                        <tr>
+                        <td>index</td>
+                        <td>x</td>
+                        <td>y</td>
+                        <td>z</td>
+                        </tr>
+                    </table>
                 </div>
-                <input type = "button" value="Add" onclick = "add_point()" >              
-                <br><br><br>
-                <table id = "table_of_points">
-                    <tr>
-                      <td>index</td>
-                      <td>x</td>
-                      <td>y</td>
-                      <td>z</td>
-                    </tr>
-                </table>
-            
+
             </div>
 
-            <div id = "add_point_input" style = " position:absolute ; background-color:white ; top : 0 ;" >
+            <canvas class = "mainCanvas" ></canvas>
+
+            <div style = "visibility: hidden" id = "add_point_input" style = " position:absolute ; background-color:white ; top : 0 ;" >
                 
                 you can write a text including vertices and edges.<br>
                 you must use <a href = "./correct_input_format.html">the correct input format</a><br>
             
             </div>
 
-            <input type = "button" onclick = "draw_convex_hull()" value = "DRAW CONVEX HULL"/>
+            <input style="visibility: hidden" type = "button" onclick = "draw_convex_hull()" value = "DRAW CONVEX HULL"/>
 
 
 

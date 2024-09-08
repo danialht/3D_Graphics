@@ -36,7 +36,6 @@ function add_point() {
     let x = String(parseInt(document.getElementById("x_input").value));
     let y = String(parseInt(document.getElementById("y_input").value));
     let z = String(parseInt(document.getElementById("z_input").value));
-    alert(x)
     if (x == "NaN" || y == "NaN" || z == "NaN") return;
     let index = point_count;
     str = "<tr id = \"row_" + index + "\"><td>" + index + "</td><td>" + x + "</td><td>" + y + "</td><td>" + z + "</td>" + "<td><input type = \"button\" id = \"btn_" + index + "\" class = \"btn_connect\" value = \"Connect\" onclick = \"get_index(" + index + ")\">"
