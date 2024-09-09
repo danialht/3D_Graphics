@@ -1,8 +1,7 @@
 # 3D_Graphics
 
-## Introductory
-This tool lets you create 3D objects, observe them by rotating and draw their convex hull.
+## Intro
+Create 3D objects by adding vertices and connecting them together.
+Watch the following Youtube video too see it in action.
 
-
-## Camera
-The projection of image on to the screen is similar to the eye(closer objects are bigger etc).
+[![YouTube](./images/screenshot.png)](https://www.youtube.com/watch?v=XUCmnGU8nfU)
